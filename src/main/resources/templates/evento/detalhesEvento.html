@@ -13,33 +13,21 @@
 </head>
 
 <body>
-	<h1>Lista de Eventos</h1>
-	<h3> <a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Cadastrar
-			Evento</a>
-
+	<h1>Detalhe Evento</h1>
+	<h3> <a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Lista de
+			Eventos</a>
 
 	</h3>
-	<table class = "container">
-		<thead>
-			<tr>
-				<td>Nome</td>
-				<td>Local</td>
-				<td>Data</td>
-				<td>Horário</td>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="evento: ${eventos}">
-				<td><a th:href= "${#mvc.url('EC#detalhesEvento')
-										.arg(0, evento.codigo)
-										.build()}"> <span th:text="${evento.nome}"></span></a> </td>
-				<td><span th:text="${evento.local}"></span></td>
-				<td><span th:text="${evento.data}"></span></td>
-				<td><span th:text="${evento.horario}"></span></td>
-			</tr>
-		</tbody>
+		<div th:each="evento: ${evento}" class="container">
+			<div class="row">
+				<p>Nome: <span th:text="${evento.nome}"></span></p>
+				<p>Local: <span th:text="${evento.local}"></span></p>
+				<p>Data: <span th:text="${evento.data}" ></span></p>
+				<p>Horario: <span th:text="${evento.horario}"></span></p>
+			</div>
+		</div>
 
-	</table>
+
 
 
 	<!--JavaScript at end of body for optimized loading-->
